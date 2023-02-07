@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="../vendors/jquery.js"></script>
+    <script src="../vendors/sweetalert.js"></script>
+    <script src="./productos_alta.js"></script>
+    <link href="../CSS/headers.css" rel="stylesheet">
+    <title>Grupo Mercader</title>
+    <link rel="shortcut icon" href="../IMG/logo.png">
+</head>
+<body>
+    <main>
+        <header class="p-3 text-bg-dark" style="background-color: #0076bc !important;">
+          <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+              <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+              </a>
+              <a href="#"><img src="../IMG/logo.png" alt="#" style="width: 4.5rem;"></a>&nbsp; &nbsp;&nbsp;&nbsp;
+              <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="./dashboard.html" class="nav-link px-2 text-white" style="font-size: 1.3rem;">Dashboard</a></li>&nbsp; &nbsp;&nbsp;&nbsp;
+                <li><a href="./productos.html" class="nav-link px-2 text-white" style="font-size: 1.3rem;">Productos</a></li>&nbsp; &nbsp;&nbsp;&nbsp;
+                <li>
+                  <div class="dropdown">
+                    <span>Registros</span>
+                    <div class="dropdown-content">
+                      <a href="./registros_entradas.html" style="text-decoration: none;">Entradas</a>
+                      <br>
+                      <a href="./registros_salidas.html" style="text-decoration: none;">Salidas</a>
+                    </div>
+                  </div>
+                </li>&nbsp; &nbsp;&nbsp;&nbsp;
+                <li><a href="./usuarios.html" class="nav-link px-2 text-white" style="font-size: 1.3rem;">Usuarios</a></li>
+              </ul>
+    
+              <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar..." aria-label="Search" style="background-color: lightgrey !important; border: solid 1px;  height: 1.8rem;">
+              </form>
+      
+              <div class="text-end">
+                <button type="button" class="btn btn-warning" style="background-color: #0076bc; border: solid 1px white; color: white;" id="salir">Salir</button>
+              </div>
+            </div>
+          </div>
+        </header>
+    </main>
+    <br>
+    <div id="lineaAux">
+      <h1>Listado de Productos</h1>
+      <button id="altaProductos" class="btn btn-primary">Alta Productos</button>
+      <button id="altaProovedores" class="btn btn-primary">Alta Proovedores</button>
+    </div>
+    <br><br>
+    <table class="table table-striped" id="productsTable">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Medida</th>
+            <th scope="col">Stock Actual</th>
+            <th scope="col">Categoría</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <!--Modal-->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="formNewProduct">
+          <h1>Alta de Producto</h1>
+          <div>
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="nombre">
+                  <label for="floatingInput">Nombre</label>
+              </div>
+              <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="descripcion">
+                  <label for="floatingInput">Descripción</label>
+              </div>
+              <div class="form-floating mb-3">
+                  <input type="number" class="form-control" id="stockMin">
+                  <label for="floatingInput">Stock Mínimo</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="stockActual">
+                <label for="floatingInput">Stock Actual</label>
+              </div>
+              <div class="form-floating">
+                  <select class="form-select" aria-label="Floating label select example" id="categoria">
+                    <option value="0">--Selecciona una--</option>
+                    <option value="BARRO UTILITARIO">BARRO UTILITARIO</option>
+                    <option value="BARRO DECORATIVO">BARRO DECORATIVO</option>
+                    <option value="VIDRIO SOPLADO">VIDRIO SOPLADO</option>
+                    <option value="PIEDRA VOLCANICA">PIEDRA VOLCANICA</option>
+                  </select>
+                  <label for="floatingSelect">Categoría</label>
+              </div>
+              <br>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="medida">
+                <label for="floatingInput">Medida</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="fabricante">
+                <label for="floatingInput">Fabricante</label>
+              </div>
+          </div>
+      </form>
+      <button class="btn btn-primary" id="guardar">Guardar</button>
+      </div> 
+  </div>
+  <div class="loading">
+    <div class="spinner"></div>
+  </div>
+</body>
+</html>

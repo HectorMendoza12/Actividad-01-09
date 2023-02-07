@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../vendors/bootstrap.bundle.min.js"></script>
+    <script src="../vendors/jquery.js"></script>
+    <script src="../vendors/moments.js"></script>
+    <script src="../vendors/momentsLocal.js"></script>
+    <script src="../vendors/sweetalert.js"></script>
+    <script src="../vendors/charts.js"></script>
+    <script src="./dashboard.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link href="../CSS/headers.css" rel="stylesheet">
+    <link href="../vendors/bootstrap.min.css" rel="stylesheet">
+
+    <title>Grupo Mercader</title>
+    <link rel="shortcut icon" href="../IMG/logo.png">
+  </head>
+  <body>
+
+<main>
+  <header class="p-3 text-bg-black" style="background-color: #0076bc;">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <a href="#"><img src="../IMG/logo.png" alt="#" style="width: 4.5rem;"></a>&nbsp; &nbsp;&nbsp;&nbsp;
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="./dashboard.html" class="nav-link px-2 text-white" style="font-size: 1.3rem;">Dashboard</a></li>&nbsp; &nbsp;&nbsp;&nbsp;
+          <li><a href="./productos.html" class="nav-link px-2 text-white" style="font-size: 1.3rem;">Productos</a></li>&nbsp; &nbsp;&nbsp;&nbsp;
+          <li>
+            <div class="dropdown">
+              <span>Registros</span>
+              <div class="dropdown-content">
+                <a href="./registros_entradas.html" style="text-decoration: none;">Entradas</a>
+                <br>
+                <a href="./registros_salidas.html" style="text-decoration: none;">Salidas</a>
+              </div>
+            </div>
+          </li>&nbsp; &nbsp;&nbsp;&nbsp;
+          <li><a href="./usuarios.html" class="nav-link px-2 text-white" style="font-size: 1.3rem;">Usuarios</a></li>&nbsp; &nbsp;&nbsp;&nbsp;
+        </ul>
+
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Buscar..." aria-label="Search" style="background-color: lightgrey !important; border: solid 1px; height: 1.8rem;">
+        </form>
+
+        <div class="text-end">
+          <button type="button" class="btn btn-warning" style="background-color: #0076bc; border: solid 1px white; color: white;" id="salir">Salir</button>
+        </div>
+      </div>
+    </div>
+  </header>
+</main>
+<div class="container">
+  <br><br>
+  <ul class="list-group list-group-horizontal-xl" style="justify-content: space-around;">
+    <div>
+      <h4 style="margin-left: 3rem;">Estatus de Salidas de Almacén</h4>
+      <div id="estatus">
+      <canvas id="grafica"></canvas>
+      </div>
+    </div>
+    <br><br>
+    <div>
+      <h4 style="margin-left: 3rem;">Notas de Venta por Vendedora</h4>
+      <br>
+      <div id="estatus">
+      <canvas id="graficaVendedora" style="width: 25rem; height: 20rem;"></canvas>
+      </div>
+    </div>
+  </ul>
+  <br><br><br>
+  <ul class="list-group list-group-horizontal-xl" style="justify-content: space-around;">
+    <div>
+      <h4 style="margin-left: 40%;">Salidas por Día</h4>
+      <div id="estatus">
+      <canvas id="graficaPorDía" style="width: 30rem;"></canvas>
+      </div>
+    </div>
+    <br>
+    <div>
+      <h4 style="margin-left: 40%;">Producto más Surtido</h4>
+      <div id="estatus">
+      <canvas id="graficaProducto"></canvas>
+      </div>
+    </div>
+  </ul>
+</div>
+<br><br>
+<div class="loading">
+  <div class="spinner"></div>
+</div>
+</body>
+</html>
+<style>
+  /*Pantalla de Carga*/
+.loading {
+    display: none;
+    background-color: black;
+    opacity: 0.5;
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border-left-color: #09f;
+  
+    animation: spin 1s ease infinite;
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+</style>
